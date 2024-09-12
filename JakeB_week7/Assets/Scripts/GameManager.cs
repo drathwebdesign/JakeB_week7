@@ -5,7 +5,7 @@ using System.IO;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager Instance;
+    public static GameManager Instance { get; set; }
 
     public Color unitColor;
 

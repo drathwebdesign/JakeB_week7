@@ -6,11 +6,16 @@ using UnityEngine;
 /// <summary>
 /// A subclass of Building that produce resource at a constant rate.
 /// </summary>
-public class ResourcePile : Building
-{
+public class ResourcePile : Building {
     public ResourceItem Item;
 
-    public float ProductionSpeed = 0.5f;
+    float _ProductionSpeed = 0.5f;
+    public float ProductionSpeed {
+        get { return _ProductionSpeed; }
+        set { if (value < 0.0f) {Debug.Log("Cant set negative value");}
+    else { _ProductionSpeed = value; }
+        }
+    }
 
     private float m_CurrentProduction = 0.0f;
 
@@ -35,6 +40,4 @@ public class ResourcePile : Building
         return $"Producing at the speed of {ProductionSpeed}/s";
         
     }
-    
-    
 }

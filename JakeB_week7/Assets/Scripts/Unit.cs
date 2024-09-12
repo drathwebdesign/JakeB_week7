@@ -26,7 +26,11 @@ public abstract class Unit : MonoBehaviour,
 
     private void Start()
     {
-        SetColor(GameManager.Instance.unitColor);
+        // Check if GameManager exists and has a valid color, otherwise use a default color
+        Color baseColor = (GameManager.Instance != null) ? GameManager.Instance.unitColor : Color.white;
+
+        // Set the color to the unit
+        SetColor(baseColor);
     }
 
     void SetColor(Color c)
